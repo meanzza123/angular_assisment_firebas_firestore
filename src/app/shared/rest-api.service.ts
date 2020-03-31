@@ -1,19 +1,29 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Case } from './case.model';
 import { DatePipe } from "@angular/common";
 @Injectable({
   providedIn: "root"
 })
 export class RestApiService {
+  // httpOptions = {
+  //   headers: new HttpHeaders({
+  //     Accept: "application/json, text/plain, */*",
+  //     "Access-Encoding": "gzip, deflate",
+  //     "Access-Control-Allow-Origin": "*",
+  //     "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+  //     "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+  //   })
+  // };
+  
   updateTime = new Date().toLocaleString();
-  baseApiUrl = "https://us-central1-assignment-a060b.cloudfunctions.net/webApi/api/v1/";
+  baseApiUrl = "http://us-central1-assignment-a060b.cloudfunctions.net/webApi/api/v1";
 
   constructor(private http: HttpClient, private datepipe: DatePipe) { }
   //create Case
   fnCreateCase(reciveCase): Promise<any> {
     const caseIdText: any = reciveCase.statusCase.substr(0, 1) + "-" + this.datepipe.transform(this.updateTime, "yyyyMMdd");
-    const createCase = this.http.post(this.baseApiUrl + "postCase", {
+    const createCase = this.http.post(this.baseApiUrl + "/postCase", {
       caseID: caseIdText,
       caseBy: reciveCase.createBy,
       topic: reciveCase.topic,
