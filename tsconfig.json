@@ -10,18 +10,25 @@
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "emitDecoratorMetadata": true,
+    "target": "es6",
     "paths": {
-      "exceljs": ["node_modules/exceljs/dist/exceljs.min"]
+      "exceljs": [
+        "node_modules/exceljs/dist/exceljs.min"
+      ]
     },
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2018",
+      "es2016",
       "dom"
     ]
   },
+  "exclude": [
+    "node_modules/**",
+    "src/typings.d.ts"
+  ],
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
