@@ -1,0 +1,39 @@
+<div class="tableFixHead table-responsive">
+    <table class="table-hover table">
+        <thead>
+            <tr>
+                <th scope="col">Case id</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Description</th>
+                <th scope="col">Date case</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of reciveData | paginate: { itemsPerPage: 5, currentPage: p }">
+                <td>{{ item.data.caseID }}</td>
+                <td>{{ item.data.topic}}</td>
+                <td>{{ item.data.description}}</td>
+                <td>{{ item.data.CreateDate | date:'dd/MM/yyyy' }}</td>
+                <td>{{ item.data.statusCase}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row page">
+            <pagination-controls (pageChange)="p = $event" directionLinks="true" autoHide="true" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"></pagination-controls>
+        </div>
+    </div>
+    <div class="col-6">
+    </div>
+    <div class="col-6">
+        <div class="text-center">
+            <button class="button" type="button" [disabled]="!btnLoadexcel" (click)="exportAsXLSX()">
+                <i class="fa fa-save"></i>
+                Download File
+            </button>
+        </div>
+    </div>
+</div>

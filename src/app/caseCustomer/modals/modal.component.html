@@ -1,0 +1,13 @@
+<div class="modal-body container-fluid modal-xl" bsModal #Modal="bs-modal">
+    <div class="modalcontent">
+        <p [ngClass]="{'p-3 bg-danger': list[0].class ==='bg-danger', 'p-3 bg-success': list[0].class ==='bg-success'}">
+            {{list[0].head}}
+        </p>
+        <hr />
+        <p> {{list[0].details}} </p>
+        <button type="button" class="button pull-right" (click)="onCancel()">
+            OK
+        </button>
+    </div>
+
+    <div>

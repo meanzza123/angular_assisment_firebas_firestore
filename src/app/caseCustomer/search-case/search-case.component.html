@@ -1,0 +1,53 @@
+<div class="container-fluid box-search">
+    <h2 class="headText">ค้นหาเคส
+        <span class="alertText" *ngIf="caseID.length != 0">ระบุ CaseID ไม่ต้องระบุ<span
+                class="warningText">วันที่</span></span>
+
+        <span class="alertText" *ngIf="dateStart.length != 0">ระบุวันที่ ไม่ต้องระบุ <span
+                class="warningText">CaseID</span></span>
+    </h2>
+
+    <hr />
+    <div class="text-center ">
+        <div class="groupBtn row">
+            <div class="input-group col-6">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Date From</span>
+                </div>
+                <input type="text" value="" class="input-text dateInput" [disabled]="caseID.length > 0" [bsConfig]="{ customTodayClass: 'custom-today-class', isAnimated: true }" bsDatepicker readonly [(ngModel)]="dateStart" [bsConfig]="{ customTodayClass: 'custom-today-class' }"
+                    [maxDate]="dateNow" (ngModelChange)="onInputChange()" name="dateStartchk" #dateStartchk="ngModel">
+            </div>
+            <div class="input-group col-6">
+                <div class="input-group-prepend">
+                    <span class="input-group-text ">Date To</span>
+                </div>
+                <input type="text" value="" class="input-text dateInput" [disabled]="caseID.length > 0" [bsConfig]="{ customTodayClass: 'custom-today-class',isAnimated: true}" bsDatepicker readonly [(ngModel)]="dateStop" (ngModelChange)="onInputChange()" [minDate]="dateStart"
+                    [maxDate]="dateNow" name="dateStopchk" #dateStopchk="ngModel">
+            </div>
+
+            <div class="input-group col-12">
+                <div class="input-group-prepend textID">
+                    <span class="input-group-text">Case Id</span>
+                </div>
+                <input type="text" class="input-text inputID" [(ngModel)]="caseID" name="caseIDs" #caseIDchk="ngModel" minlength="14" maxlength="14" onpaste="return false;" required [disabled]="dateStart.length != 0 || dateStop.length != 0" onpaste="return false" autocomplete="off"
+                    (keypress)="keyPress($event)" (ngModelChange)="onInputChange()">
+                <div *ngIf="caseID.length > 0" class="alertText col-12">
+                    <span> ใส่ได้เฉพาะ a-z และ 0-9 (14หลัก)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="groupBtn row">
+            <div class="col-4"></div>
+            <div class="col-8">
+                <button class="button" type="button" (click)="clear()"><i class="fa fa-undo"></i>
+                    Clear
+                </button>
+                <button class="button" type="button" [disabled]="!btnSend" (click)="searchCase()">
+                    <i class="fa fa-save"></i>
+                    Search
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

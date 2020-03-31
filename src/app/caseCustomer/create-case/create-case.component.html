@@ -1,0 +1,110 @@
+<div class="container-fluid box-search">
+    <h2 class="headText">สร้างเคสใหม่</h2>
+    <hr />
+
+    <form class="form" [formGroup]="angAddForm" (ngSubmit)="onSubmit()">
+        <div class="row box">
+
+            <!--Start Upload Image-->
+            <div class="col-4  justify-content-center">
+                <p class="image">
+                    <label for="file-upload" class="btn btn-file-upload">
+                        <i class="fa fa-file-image-o"></i>
+                        Upload Image
+                    </label>
+                </p>
+                <input type="file" accept="image/*" #files value="" id="file-upload" class="form-control imgPreview" (change)="onSelectFile($event)" multiple />
+                <!--Upload Image list-->
+                <div class="row imagePage">
+                    <ul>
+                        <li *ngFor="let item of imageText | paginate: { itemsPerPage: 1, currentPage: p }">
+                            <img class="custom-file-upload" [src]="item.src" />
+                        </li>
+                    </ul>
+                    <pagination-controls (pageChange)="p = $event" directionLinks="true" autoHide="true" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"></pagination-controls>
+                </div>
+            </div>
+            <!--End Upload Image-->
+
+
+            <div class="col-8 divBox">
+
+                <!--Start Create By-->
+                <div class="input-group row">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Create By <span class="star">&nbsp;*</span></span>
+                    </div>
+                    <input class="form-control" type="text" formControlName="createBy">
+                    <!--Validates Create By-->
+                    <div *ngIf="formChk.createBy.touched && formChk.createBy.invalid" class="valid col-12">
+                        <div *ngIf="formChk.createBy.errors.required">โปรดระบุข้อมูล.</div>
+                        <div *ngIf="formChk.createBy.errors.minlength">ระบุตัวอักษรไม่น้อยกว่า 3 ตัวอักษร.</div>
+                        <div *ngIf="formChk.createBy.errors.pattern">ระบุเฉพาะ a-z.</div>
+                    </div>
+                </div>
+                <!--Stop Create By-->
+
+                <!--Start Topic-->
+                <div class="input-group row">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Topic <span class="star">&nbsp;*</span></span>
+                    </div>
+                    <input type="text" formControlName="topic" class="input-text" placeholder="Topic" />
+                    <!--Validates Topic-->
+                    <div *ngIf="formChk.topic.touched && formChk.topic.invalid" class="col-12 valid">
+                        <div *ngIf="formChk.topic.errors.required">โปรดระบุข้อมูล.</div>
+                        <div *ngIf="formChk.topic.errors.minlength">ระบุตัวอักษรไม่น้อยกว่า 6ตัวอักษร.</div>
+                    </div>
+                </div>
+                <!--Stop Topic-->
+
+                <!--Start Description-->
+                <div class="input-group row">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Description <span class="star">&nbsp;*</span></span>
+                    </div>
+                    <textarea type="text" name="description" formControlName="description" class="input-text" placeholder="description"> </textarea>
+                    <!--Validates Description-->
+                    <div *ngIf="formChk.description.touched && formChk.description.invalid" class="col-12 valid">
+                        <div *ngIf="formChk.description.errors.required">โปรดระบุข้อมูล.</div>
+                        <div *ngIf="formChk.description.errors.minlength">ระบุตัวอักษรไม่น้อยกว่า 10ตัวอักษร.</div>
+                    </div>
+                </div>
+                <!--StopDescription-->
+
+                <!--Start StatusCase-->
+                <div class="input-group row">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Status Case <span class="star">&nbsp;*</span></span>
+                    </div>
+                    <select formControlName="statusCase" class="input-text">
+                        <option value="" disabled>Select Case</option>
+                        <option [ngValue]="case" *ngFor="let case of cases"> {{
+                case
+              }}</option>
+                    </select>
+                    <!--Valid StatusCase-->
+                    <div *ngIf="formChk.statusCase.touched && formChk.statusCase.invalid" class="col-12 valid">
+                        <div *ngIf="formChk.statusCase.errors.required">โปรดเลือกประเภท.</div>
+                    </div>
+                </div>
+                <!--Stop StatusCase--->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-8">
+                <button class="button" type="button" (click)="reset()">
+                    <i class="fa fa-undo"></i>
+                    Clear
+                </button>
+
+                <button class="button" type="submit" [disabled]="angAddForm.invalid" (ngSubmit)="onSubmit()">
+                    <i class="fa fa-save"></i>
+                    Submit
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
