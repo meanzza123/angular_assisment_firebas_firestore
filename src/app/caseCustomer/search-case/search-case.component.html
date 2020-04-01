@@ -1,10 +1,8 @@
 <div class="container-fluid box-search">
     <h2 class="headText">ค้นหาเคส
-        <span class="alertText" *ngIf="caseID.length != 0">ระบุ CaseID ไม่ต้องระบุ<span
-                class="warningText">วันที่</span></span>
+        <span class="alertText" *ngIf="caseID.length != 0">ระบุ CaseID ไม่ต้องระบุนที่</span>
 
-        <span class="alertText" *ngIf="dateStart.length != 0">ระบุวันที่ ไม่ต้องระบุ <span
-                class="warningText">CaseID</span></span>
+        <span class="alertText" *ngIf="dateStart.length != 0">ระบุวันที่ ไม่ต้องระบุ CaseID</span>
     </h2>
 
     <hr />
@@ -31,10 +29,14 @@
                 </div>
                 <input type="text" class="input-text inputID" [(ngModel)]="caseID" name="caseIDs" #caseIDchk="ngModel" minlength="14" maxlength="14" onpaste="return false;" required [disabled]="dateStart.length != 0 || dateStop.length != 0" onpaste="return false" autocomplete="off"
                     (keypress)="keyPress($event)" (ngModelChange)="onInputChange()">
-                <div *ngIf="caseID.length > 0" class="alertText col-12">
+            </div>
+            <div class="input-group col-12">
+                <div class="input-group-prepend textID"></div>
+                <div *ngIf="caseID.length > 0" class="input-text inputID alertText ">
                     <span> ใส่ได้เฉพาะ a-z และ 0-9 (14หลัก)</span>
                 </div>
             </div>
+
         </div>
 
         <div class="groupBtn row">
