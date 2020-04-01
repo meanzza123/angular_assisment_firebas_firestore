@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-search-case',
@@ -17,7 +19,8 @@ export class SearchCaseComponent implements OnInit {
   dateStop = new Date().toLocaleString();
 
   constructor(
-    private route: Router
+    private route: Router,
+    private datepipe: DatePipe
   ) {
 
   }
@@ -74,7 +77,7 @@ export class SearchCaseComponent implements OnInit {
 
   // send param to detail page -> load data
   searchCase() {
-    this.route.navigate(["pageDetails"], { queryParams: { caseID: this.caseID, dateStart: this.dateStart, dateStop: this.dateStop } });
+    this.route.navigate(["pageDetails"], { queryParams: { caseID: this.caseID, dateStart: this.datepipe.transform(this.dateStart, "yyyy-MM-dd"), dateStop: this.datepipe.transform(this.dateStop, "yyyy-MM-dd") } });
   }
 }
 

@@ -32,6 +32,7 @@ export class DetailsCaseComponent implements OnInit {
     this.datatoModal
       .subscribe(params => {
         this.dataParams = params;
+        console.log(this.dataParams)
       })
     this.loadData();
   }
@@ -44,7 +45,7 @@ export class DetailsCaseComponent implements OnInit {
     const initialState = {
       list: [
         {
-          "head": "ไม่พบข้อมูล",
+          "head": "ผลการค้นหา",
           "class": "bg-danger",
           "details": "ไม่พบข้อมูล"
         }
