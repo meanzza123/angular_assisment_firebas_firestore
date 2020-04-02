@@ -9,7 +9,6 @@ export class RestApiService {
   
   updateTime = new Date().toLocaleString();
   baseApiUrl = "https://us-central1-assignment-a060b.cloudfunctions.net/webApi/api/v1";
-
   constructor(private http: HttpClient, private datepipe: DatePipe) { }
   //create Case
   fnCreateCase(reciveCase): Promise<any> {
