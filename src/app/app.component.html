@@ -9,7 +9,7 @@
         </a>
     </nav>
     <div class="container-fluid">
-        <div class="mainContain">
+        <div class="mainContain" *ngIf="!router.url.includes('pageDetails')">
             <div class="btn-group d-flex justify-content-center">
                 <div class="col-6 divBtnMain">
                     <button class="button btnMain" type="button" [routerLinkActive]="['isActive']" [routerLink]="['/pageSearch']">

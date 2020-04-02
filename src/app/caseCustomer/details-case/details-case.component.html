@@ -1,16 +1,18 @@
 <div class="tableFixHead table-responsive">
+
     <table class="table-hover table">
+        <input type="text" [(ngModel)]="searchText" (keyup)="filterArray()">
         <thead>
             <tr>
-                <th scope="col">Case id</th>
-                <th scope="col">Topic</th>
-                <th scope="col">Description</th>
-                <th scope="col">Date case</th>
-                <th scope="col">Status</th>
+                <th scope="col" style="width:10%">Case id</th>
+                <th scope="col" style="width:10%">Topic</th>
+                <th scope="col" style="width:10%">Description</th>
+                <th scope="col" style="width:10%">Date case</th>
+                <th scope="col" style="width:10%">Status</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of reciveData | paginate: { itemsPerPage: 5, currentPage: p }">
+            <tr *ngFor="let item of filteredArray | paginate: { itemsPerPage: 10, currentPage: p } ">
                 <td>{{ item.data.caseID }}</td>
                 <td>{{ item.data.topic}}</td>
                 <td>{{ item.data.description}}</td>

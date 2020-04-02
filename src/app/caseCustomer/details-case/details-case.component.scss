@@ -1,21 +1,20 @@
 .tableFixHead {
     overflow-y: auto;
     height: 50%;
-    margin: 3vh 0.5vh 2vh 0.5vh;
+    margin: 12vh 0.5vh 2vh 0.5vh;
     background-color: #eee;
     border-radius: 1vh;
 }
 
-.tableFixHead table {
-    border-collapse: collapse;
-}
-
 th {
     font-size: 2vh;
+    width: 10%;
 }
 
 td {
     font-size: 1.6vh;
+    width: 10%;
+    overflow: scroll;
 }
 
 .tableFixHead th,
@@ -28,6 +27,11 @@ td {
     top: 0;
     background: #689F38;
     height: 70%;
+}
+
+table {
+    table-layout: fixed;
+    word-wrap: break-word;
 }
 
 .page {
