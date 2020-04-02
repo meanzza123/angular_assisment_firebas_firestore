@@ -1,31 +1,20 @@
-<div class="tableFixHead table-responsive">
+<div class="card mb-5">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-8">
+                <input #search id="search" type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
 
-    <table class="table-hover table">
-        <thead>
-            <tr>
-                <th scope="col" style="width:10%">Case id</th>
-                <th scope="col" style="width:10%">Topic</th>
-                <th scope="col" style="width:10%">Description</th>
-                <th scope="col" style="width:10%">Date case</th>
-                <th scope="col" style="width:10%">Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of reciveData | paginate: { itemsPerPage: 10, currentPage: p } ">
-                <td>{{ item.data.caseID }}</td>
-                <td>{{ item.data.topic}}</td>
-                <td>{{ item.data.description}}</td>
-                <td>{{ item.data.CreateDate | date:'dd/MM/yyyy' }}</td>
-                <td>{{ item.data.statusCase}}</td>
-            </tr>
-        </tbody>
-    </table>
+
+
+    <ngx-datatable class="material tableFixHead" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10">
+    </ngx-datatable>
 </div>
+
 <div class="row">
     <div class="col-12">
-        <div class="row page">
-            <pagination-controls (pageChange)="p = $event" directionLinks="true" autoHide="true" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"></pagination-controls>
-        </div>
     </div>
     <div class="col-6">
     </div>

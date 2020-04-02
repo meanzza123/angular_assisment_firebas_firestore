@@ -24,7 +24,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoaderComponent} from './loadder/loadder.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptorService } from './shared/loader-interceptor.service';
-
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +44,8 @@ import { LoaderInterceptorService } from './shared/loader-interceptor.service';
     BsDatepickerModule.forRoot(),
     PaginationModule.forRoot(),
     NgxPaginationModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxDatatableModule
   ],
   providers: [ExcelService, RestApiService, DatePipe,    {
     provide: HTTP_INTERCEPTORS,

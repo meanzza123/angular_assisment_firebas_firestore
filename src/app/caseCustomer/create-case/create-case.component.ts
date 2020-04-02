@@ -98,19 +98,19 @@ export class CreateCaseComponent implements OnInit {
     this.angAddForm.value.image = this.imageText;
     this.service.fnCreateCase(this.angAddForm.value)
       .then((res) => {
-        if (res) {
-          this.initialState = {
-            list: [
-              {
-                "head": "เพิ่มข้อมูลสำเร็จ",
-                "class": "bg-success",
-                "details": "ท่านได้ทำการเพิ่ม ข้อมูลเสร็จสิ้นแล้ว"
-              }
-            ]
-          };
-          this.openModalWithComponent();
-        }
-        this.createForm();
+        // if (res) {
+        //   this.initialState = {
+        //     list: [
+        //       {
+        //         "head": "เพิ่มข้อมูลสำเร็จ",
+        //         "class": "bg-success",
+        //         "details": "ท่านได้ทำการเพิ่ม ข้อมูลเสร็จสิ้นแล้ว"
+        //       }
+        //     ]
+        //   };
+        //   this.openModalWithComponent();
+        // }
+        // this.createForm();
       }).catch((error) => {
         if (error) {
           this.initialState = {

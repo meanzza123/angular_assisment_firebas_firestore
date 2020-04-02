@@ -1,54 +1,7 @@
-.tableFixHead {
-    overflow-y: auto;
-    height: 50%;
-    margin: 12vh 0.5vh 2vh 0.5vh;
-    background-color: #eee;
-    border-radius: 1vh;
-}
-
-th {
-    font-size: 2vh;
-    width: 10%;
-}
-
-td {
-    font-size: 1.6vh;
-    width: 10%;
-    overflow: scroll;
-}
-
-.tableFixHead th,
-.tableFixHead td {
-    padding: 1vh;
-}
-
-.tableFixHead th {
-    position: sticky;
-    top: 0;
-    background: #689F38;
-    height: 70%;
-}
-
-table {
-    table-layout: fixed;
-    word-wrap: break-word;
-}
-
-.page {
-    font-size: 2vh;
-    margin: 2.5vh 0.5vh 2.5vh;
-}
-
- ::ng-deep ul.ngx-pagination {
-    padding: 0.5vh;
-}
-
- ::ng-deep pagination-controls {
-    border-radius: 1vh;
-    font-size: 2vh;
-    padding: 1vh;
-    text-align: center;
-    margin: auto;
+::ng-deep .ngx-datatable.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell {
+    background: #689F38!important;
+    top: 0!important;
+    position: sticky!important;
 }
 
 .button {
