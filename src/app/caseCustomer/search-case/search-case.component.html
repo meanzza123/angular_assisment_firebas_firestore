@@ -32,7 +32,7 @@
             </div>
             <div class="input-group col-12">
                 <div class="input-group-prepend textID"></div>
-                <div *ngIf="caseID.length > 0" class="input-text inputID alertText ">
+                <div *ngIf="caseID.length > 0 && caseID.length < 14" class="input-text inputID alertText ">
                     <span> ใส่ได้เฉพาะ a-z และ 0-9 (14หลัก)</span>
                 </div>
             </div>

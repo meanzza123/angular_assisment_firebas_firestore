@@ -32,7 +32,6 @@ export class DetailsCaseComponent implements OnInit {
     this.datatoModal
       .subscribe(params => {
         this.dataParams = params;
-        console.log(this.dataParams)
       })
     this.loadData();
   }
