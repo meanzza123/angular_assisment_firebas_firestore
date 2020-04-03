@@ -101,9 +101,9 @@
                 <button class="button" type="button" (click)="reset()">
                     <i class="fa fa-undo"></i>
                     Clear
-                </button> [disabled]="angAddForm.invalid"
+                </button>
 
-                <button class="button" type="submit" (ngSubmit)="onSubmit()">
+                <button class="button" type="submit" [disabled]="angAddForm.invalid" (ngSubmit)="onSubmit()">
                     <i class="fa fa-save"></i>
                     Submit
                 </button>
