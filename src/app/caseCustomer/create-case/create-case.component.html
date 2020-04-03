@@ -34,7 +34,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Create By <span class="star">&nbsp;*</span></span>
                     </div>
-                    <input class="form-control" type="text" formControlName="createBy">
+                    <input class="input-text" type="text" formControlName="createBy">
                     <!--Validates Create By-->
                     <div *ngIf="formChk.createBy.touched && formChk.createBy.invalid" class="valid col-12">
                         <div *ngIf="formChk.createBy.errors.required">โปรดระบุข้อมูล.</div>
