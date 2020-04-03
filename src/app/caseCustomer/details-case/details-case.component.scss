@@ -5,6 +5,10 @@
     overflow: scroll;
 }
 
+::ng-deep .form-control {
+    margin-bottom: 3vh;
+}
+
 .button {
     position: relative;
     float: right;

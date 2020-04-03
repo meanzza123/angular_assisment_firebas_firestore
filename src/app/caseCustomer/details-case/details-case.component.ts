@@ -88,7 +88,6 @@ export class DetailsCaseComponent implements OnInit {
             description:newCase.description,CreateDate:newCase.CreateDate,statusCase:newCase.statusCase
           }));
           this.rows = this.temp = result;
-          console.log(this.rows)
           this.reciveData.length > 0 ? this.btnLoadexcel = true : this.btnLoadexcel = false
           if (res.length <= 0) {
             this.openModalWithComponent();
@@ -103,7 +102,6 @@ export class DetailsCaseComponent implements OnInit {
             description:newCase.data.description,CreateDate:newCase.data.CreateDate,statusCase:newCase.data.statusCase
           }));
           this.rows = this.temp = result;
-          console.log(this.rows)
           this.reciveData.length > 0 ? this.btnLoadexcel = true : this.btnLoadexcel = false
           if (res.length <= 0) {
             this.openModalWithComponent();
