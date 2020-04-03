@@ -77,7 +77,7 @@ export class SearchCaseComponent implements OnInit {
 
   // send param to detail page -> load data
   searchCase() {
-    this.route.navigate(["pageDetails"], { queryParams: { caseID: this.caseID, dateStart: this.datepipe.transform(this.dateStart, "yyyy-MM-dd"), dateStop: this.datepipe.transform(this.dateStop, "yyyy-MM-dd") } });
+    this.route.navigate(["pageDetails"], { queryParams: { id: this.caseID, dateStart: this.datepipe.transform(this.dateStart, "yyyy-MM-dd"), dateStop: this.datepipe.transform(this.dateStop, "yyyy-MM-dd") } });
   }
 }
 

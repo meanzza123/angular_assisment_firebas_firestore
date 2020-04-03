@@ -33,7 +33,7 @@ export class RestApiService {
 
   //search Case By Case
   fngGetByCase(dataParams): Promise<any> {
-    const params = dataParams.caseID;
+    const params = dataParams.id;
     const getDataByCase = this.http.get(this.baseApiUrl + "/getCase/" + params).toPromise();
     return getDataByCase
   }

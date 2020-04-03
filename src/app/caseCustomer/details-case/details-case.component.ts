@@ -80,12 +80,12 @@ export class DetailsCaseComponent implements OnInit {
 
 
     this.btnLoadexcel = false;
-    if (this.dataParams.caseID) {
+    if (this.dataParams.id) {
       this.restApiService.fngGetByCase(this.dataParams)
         .then(res => {
           this.reciveData = res;
-          const result = res.map(newCase => ({ caseID: newCase.caseID, topic: newCase.topic,
-            description:newCase.description,CreateDate:newCase.CreateDate,statusCase:newCase.statusCase
+          const result = res.map(newCase => ({ caseID: newCase.data.caseID, topic: newCase.data.topic,
+            description:newCase.data.description,CreateDate:newCase.data.CreateDate,statusCase:newCase.data.statusCase
           }));
           this.rows = this.temp = result;
           this.reciveData.length > 0 ? this.btnLoadexcel = true : this.btnLoadexcel = false

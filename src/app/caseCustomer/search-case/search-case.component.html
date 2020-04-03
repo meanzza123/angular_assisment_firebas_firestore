@@ -27,8 +27,7 @@
                 <div class="input-group-prepend textID">
                     <span class="input-group-text">Case Id</span>
                 </div>
-                <input type="text" class="input-text inputID" [(ngModel)]="caseID" name="caseIDs" #caseIDchk="ngModel" minlength="14" maxlength="14" onpaste="return false;" required [disabled]="dateStart.length != 0 || dateStop.length != 0" onpaste="return false" autocomplete="off"
-                    (keypress)="keyPress($event)" (ngModelChange)="onInputChange()">
+                <input type="text" class="input-text inputID" [(ngModel)]="caseID" name="caseIDs" #caseIDchk="ngModel" minlength="14" maxlength="14" required [disabled]="dateStart.length != 0 || dateStop.length != 0" (keypress)="keyPress($event)" (ngModelChange)="onInputChange()">
             </div>
             <div class="input-group col-12">
                 <div class="input-group-prepend textID"></div>
