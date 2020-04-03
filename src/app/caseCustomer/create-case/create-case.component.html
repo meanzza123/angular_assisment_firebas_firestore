@@ -40,6 +40,7 @@
                         <div *ngIf="formChk.createBy.errors.required">โปรดระบุข้อมูล.</div>
                         <div *ngIf="formChk.createBy.errors.minlength">ระบุตัวอักษรไม่น้อยกว่า 3 ตัวอักษร.</div>
                         <div *ngIf="formChk.createBy.errors.pattern">ระบุเฉพาะ a-z.</div>
+                        <div *ngIf="formChk.createBy.errors.maxlength">ระบุตัวอักษรไม่มากกว่า 30 ตัวอักษร.</div>
                     </div>
                 </div>
                 <!--Stop Create By-->
@@ -54,6 +55,7 @@
                     <div *ngIf="formChk.topic.touched && formChk.topic.invalid" class="col-12 valid">
                         <div *ngIf="formChk.topic.errors.required">โปรดระบุข้อมูล.</div>
                         <div *ngIf="formChk.topic.errors.minlength">ระบุตัวอักษรไม่น้อยกว่า 6ตัวอักษร.</div>
+                        <div *ngIf="formChk.topic.errors.maxlength">ระบุตัวอักษรไม่มากกว่า 50ตัวอักษร.</div>
                     </div>
                 </div>
                 <!--Stop Topic-->
@@ -68,6 +70,7 @@
                     <div *ngIf="formChk.description.touched && formChk.description.invalid" class="col-12 valid">
                         <div *ngIf="formChk.description.errors.required">โปรดระบุข้อมูล.</div>
                         <div *ngIf="formChk.description.errors.minlength">ระบุตัวอักษรไม่น้อยกว่า 10ตัวอักษร.</div>
+                        <div *ngIf="formChk.description.errors.maxlength">ระบุตัวอักษรไม่มากกว่า 500ตัวอักษร.</div>
                     </div>
                 </div>
                 <!--StopDescription-->

@@ -45,9 +45,9 @@ export class CreateCaseComponent implements OnInit {
 
   createForm() {
     this.angAddForm = this.formBuilder.group({
-      createBy: new FormControl('', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z]+$')]),
-      topic: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      description: new FormControl('', [Validators.required, Validators.minLength(10)]),
+      createBy: new FormControl('', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z]+$'),Validators.maxLength(30)]),
+      topic: new FormControl('', [Validators.required, Validators.minLength(6),Validators.maxLength(30)]),
+      description: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(500)]),
       image: new FormControl(''),
       statusCase: new FormControl('', [Validators.required]),
     });
@@ -98,19 +98,19 @@ export class CreateCaseComponent implements OnInit {
     this.angAddForm.value.image = this.imageText;
     this.service.fnCreateCase(this.angAddForm.value)
       .then((res) => {
-        // if (res) {
-        //   this.initialState = {
-        //     list: [
-        //       {
-        //         "head": "เพิ่มข้อมูลสำเร็จ",
-        //         "class": "bg-success",
-        //         "details": "ท่านได้ทำการเพิ่ม ข้อมูลเสร็จสิ้นแล้ว"
-        //       }
-        //     ]
-        //   };
-        //   this.openModalWithComponent();
-        // }
-        // this.createForm();
+        if (res) {
+          this.initialState = {
+            list: [
+              {
+                "head": "เพิ่มข้อมูลสำเร็จ",
+                "class": "bg-success",
+                "details": "ท่านได้ทำการเพิ่ม ข้อมูลเสร็จสิ้นแล้ว"
+              }
+            ]
+          };
+          this.openModalWithComponent();
+        }
+        this.createForm();
       }).catch((error) => {
         if (error) {
           this.initialState = {
