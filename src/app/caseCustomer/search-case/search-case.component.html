@@ -8,14 +8,14 @@
     <hr />
     <div class="text-center ">
         <div class="groupBtn row">
-            <div class="input-group col-6">
+            <div class="input-group col-xs-12 col-md-6">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Date From</span>
                 </div>
                 <input type="text" value="" class="input-text dateInput" [disabled]="caseID.length > 0" [bsConfig]="{ customTodayClass: 'custom-today-class', isAnimated: true }" bsDatepicker readonly [(ngModel)]="dateStart" [bsConfig]="{ customTodayClass: 'custom-today-class' }"
                     [maxDate]="dateNow" (ngModelChange)="onInputChange()" name="dateStartchk" #dateStartchk="ngModel">
             </div>
-            <div class="input-group col-6">
+            <div class="input-group col-xs-12 col-md-6">
                 <div class="input-group-prepend">
                     <span class="input-group-text ">Date To</span>
                 </div>
@@ -23,7 +23,7 @@
                     [maxDate]="dateNow" name="dateStopchk" #dateStopchk="ngModel">
             </div>
 
-            <div class="input-group col-12">
+            <div class="input-group  col-xs-12 col-md-12">
                 <div class="input-group-prepend textID">
                     <span class="input-group-text">Case Id</span>
                 </div>
@@ -39,8 +39,8 @@
         </div>
 
         <div class="groupBtn row">
-            <div class="col-4"></div>
-            <div class="col-8">
+            <div class="col-2"></div>
+            <div class="col-10">
                 <button class="button" type="button" (click)="clear()"><i class="fa fa-undo"></i>
                     Clear
                 </button>
@@ -48,6 +48,8 @@
                     <i class="fa fa-save"></i>
                     Search
                 </button>
+
+
             </div>
         </div>
     </div>

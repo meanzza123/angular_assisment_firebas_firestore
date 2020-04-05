@@ -6,7 +6,7 @@
         <div class="row box">
 
             <!--Start Upload Image-->
-            <div class="col-4  justify-content-center">
+            <div class="col-xs-12 col-md-4  justify-content-center">
                 <p class="image">
                     <label for="file-upload" class="btn btn-file-upload">
                         <i class="fa fa-file-image-o"></i>
@@ -15,19 +15,18 @@
                 </p>
                 <input type="file" accept="image/*" #files value="" id="file-upload" class="form-control imgPreview" (change)="onSelectFile($event)" multiple />
                 <!--Upload Image list-->
-                <div class="row imagePage">
-                    <ul>
-                        <li *ngFor="let item of imageText | paginate: { itemsPerPage: 1, currentPage: p }">
-                            <img class="custom-file-upload" [src]="item.src" />
-                        </li>
-                    </ul>
-                    <pagination-controls (pageChange)="p = $event" directionLinks="true" autoHide="true" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"></pagination-controls>
-                </div>
+                <ul>
+                    <li *ngFor="let item of imageText | paginate: { itemsPerPage: 1, currentPage: p }">
+                        <img class="custom-file-upload" [src]="item.src" />
+                    </li>
+                </ul>
+                <pagination-controls (pageChange)="p = $event" directionLinks="true" autoHide="true" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"></pagination-controls>
+
             </div>
             <!--End Upload Image-->
 
 
-            <div class="col-8 divBox">
+            <div class="col-xs-12 col-md-8 divBox">
 
                 <!--Start Create By-->
                 <div class="input-group row">
