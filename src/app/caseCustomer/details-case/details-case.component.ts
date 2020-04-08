@@ -3,15 +3,20 @@ import { ExcelService } from "../../shared/excel.service";
 import { RestApiService } from "../../shared/rest-api.service";
 import { ActivatedRoute } from '@angular/router';
 import { ModalContentComponent } from '../modals/modal-component';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 import { DatePipe } from "@angular/common";
 import { fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ImageSlideComponent } from '../image-slide/image-slide.component';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { CarouselConfig } from 'ngx-bootstrap/carousel';
 @Component({
   selector: 'app-details-case',
   templateUrl: './details-case.component.html',
-  styleUrls: ['./details-case.component.scss']
+  styleUrls: ['./details-case.component.scss'],
+  providers: [
+    { provide: CarouselConfig, useValue: { interval: 0, noPause: true, showIndicators: true } }
+  ]
 })
 export class DetailsCaseComponent implements OnInit {
 
@@ -66,6 +71,17 @@ export class DetailsCaseComponent implements OnInit {
   }
 
 
+  openModalImage(imageLoadder) {
+
+    const initialState = {
+      imageLoadder
+     }
+      
+    
+    this.bsModalRef = this.modalService.show(ImageSlideComponent, { initialState });
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
+
 
   //load data from <-[api] <- search page
   loadData() {
@@ -76,20 +92,21 @@ export class DetailsCaseComponent implements OnInit {
       { prop: 'description', name: 'Description' },
       { prop: 'CreateDate', name: 'Date Create' },
       { prop: 'CreateBy', name: 'Create By' },
-      { prop: 'statusCase', name: 'Status' }
+      { prop: 'statusCase', name: 'Status' },
     ];
-
-
+  
     this.btnLoadexcel = false;
     if (this.dataParams.id) {
       this.restApiService.fngGetByCase(this.dataParams)
         .then(res => {
           this.reciveData = res;
-          const result = res.map(newCase => ({ caseID: newCase.data.caseID, topic: newCase.data.topic,
-            description:newCase.data.description,CreateDate:this.datepipe.transform(newCase.data.CreateDate, "dd/MM/yyyy"),CreateBy:newCase.data.caseBy,statusCase:newCase.data.statusCase
+          const result = res.map(newCase => ({
+            caseID: newCase.data.caseID, topic: newCase.data.topic,
+            description: newCase.data.description, CreateDate: this.datepipe.transform(newCase.data.CreateDate, "dd/MM/yyyy"), CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase,image: newCase.data.image
           }));
           console.log(this.reciveData.length)
           this.rows = this.temp = result;
+          console.log(this.rows)
           this.reciveData.length > 0 ? this.btnLoadexcel = true : this.btnLoadexcel = false
           if (res.length <= 0) {
             this.openModalWithComponent();
@@ -98,13 +115,15 @@ export class DetailsCaseComponent implements OnInit {
         .catch(() => { });
     } else {
       this.restApiService.fnGetByDate(this.dataParams)
-        .then(res => {        
+        .then(res => {
           this.reciveData = res;
-          const result = res.map(newCase => ({ caseID: newCase.data.caseID, topic: newCase.data.topic,
-            description:newCase.data.description,CreateDate:this.datepipe.transform(newCase.data.CreateDate, "dd/MM/yyyy"),CreateBy:newCase.data.caseBy,statusCase:newCase.data.statusCase
+          const result = res.map(newCase => ({
+            caseID: newCase.data.caseID, topic: newCase.data.topic,
+            description: newCase.data.description, CreateDate: this.datepipe.transform(newCase.data.CreateDate, "dd/MM/yyyy"), CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase,image: newCase.data.image
           }));
           console.log(this.reciveData.length)
           this.rows = this.temp = result;
+          console.log(this.rows)
           this.reciveData.length > 0 ? this.btnLoadexcel = true : this.btnLoadexcel = false
           if (res.length <= 0) {
             this.openModalWithComponent();
@@ -114,6 +133,10 @@ export class DetailsCaseComponent implements OnInit {
         });
     }
   }
+  getRowHeight(row) {
+    return row.height;
+  }
+
   ngAfterViewInit(): void {
     // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     // Add 'implements AfterViewInit' to the class.
@@ -124,6 +147,9 @@ export class DetailsCaseComponent implements OnInit {
       .subscribe(value => {
         this.updateFilter(value);
       });
+  }
+  dataTest($event: any) {
+    console.log($event)
   }
 
   updateFilter(val: any) {
@@ -157,10 +183,10 @@ export class DetailsCaseComponent implements OnInit {
 
 
   onActivate(event) {
-    if(event.type == 'click') {
-        console.log(event.row);
+    if (event.type == 'click') {
+      console.log(event.row);
     }
-}
+  }
 
   // create excell
   exportAsXLSX() {

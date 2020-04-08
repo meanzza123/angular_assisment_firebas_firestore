@@ -1,16 +1,9 @@
 ::ng-deep .ngx-datatable.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell {
-    background: #689F38!important;
-    top: 0!important;
-    position: sticky!important;
-    overflow: scroll;
+    background: #81C44D!important;
 }
 
 ::ng-deep .form-control {
     margin-bottom: 1.4vh;
-}
-
-::ng-deep datatable-body.datatable-body {
-    height: 50vh;
 }
 
 .button {

@@ -142,7 +142,7 @@ p {
 
 ::ng-deep .carousel-control-prev,
  ::ng-deep .carousel-control-next {
-    background-color: white;
+    background: none;
 }
 
  ::ng-deep .carousel .carousel-control-prev-icon,
@@ -159,6 +159,10 @@ p {
     padding-bottom: 7vh;
 }
 
+::ng-deep .modal-header {
+    display: inline;
+}
+
 ::ng-deep .close:not(:disabled):not(.disabled) {
     cursor: pointer;
     top: 16px;
@@ -168,11 +172,6 @@ p {
     /* padding: 1vh; */
     background-color: black;
     color: white;
-}
-
-::ng-deep span {
-    color: white;
-    font-size: 2vh;
 }
 
 @media only screen and (max-width: 768px) {

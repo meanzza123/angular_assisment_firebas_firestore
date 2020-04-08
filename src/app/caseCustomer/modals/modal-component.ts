@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
     selector: 'modal-component',
@@ -12,7 +11,7 @@ export class ModalContentComponent implements OnInit {
     list:any;
     numberOfItems = 0;
     @Input() data: string;
-    constructor(private formBuilder: FormBuilder, private _bsModalRef: BsModalRef) {}
+    constructor( private _bsModalRef: BsModalRef) {}
 
     ngOnInit() {
     }

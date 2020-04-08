@@ -9,7 +9,59 @@
 
 
 
-    <ngx-datatable class="material striped" (activate)="onActivate($event)" [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [scrollbarV]="true" [rowHeight]="50" [footerHeight]="50" [limit]="10">
+    <!-- <ngx-datatable class="material striped" (activate)="onActivate($event)" [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [scrollbarV]="true" [rowHeight]="50" [footerHeight]="50" [limit]="10">
+    </ngx-datatable> -->
+
+
+    <ngx-datatable class="material striped" [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="40" [limit]="10">
+        <ngx-datatable-column name="Case ID">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <strong> {{column.name}}</strong>
+            </ng-template>
+            <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                <a (click)="openModalImage(rows[rowIndex].image)">{{rows[rowIndex].caseID}}</a>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Topic">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <strong> {{column.name}}</strong>
+            </ng-template>
+            <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                <a (click)="openModalImage(rows[rowIndex].topic)">{{rows[rowIndex].topic}}</a>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Description">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <strong> {{column.name}}</strong>
+            </ng-template>
+            <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                <span> {{rows[rowIndex].description}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Date Create">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <strong> {{column.name}}</strong>
+            </ng-template>
+            <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                <span> {{rows[rowIndex].CreateDate}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Create By">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <strong> {{column.name}}</strong>
+            </ng-template>
+            <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                <span> {{rows[rowIndex].CreateBy}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Status">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <strong> {{column.name}}</strong>
+            </ng-template>
+            <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                <span> {{rows[rowIndex].statusCase}}</span>
+            </ng-template>
+        </ngx-datatable-column>
     </ngx-datatable>
 </div>
 

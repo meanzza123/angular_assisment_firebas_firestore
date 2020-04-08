@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { CarouselConfig } from 'ngx-bootstrap/carousel';
-
-import { ImageSlideComponent } from '../image-slide/image-slide.component';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { CarouselConfig } from 'ngx-bootstrap/carousel';
 @Component({
   selector: 'app-search-case',
   templateUrl: './search-case.component.html',
@@ -35,12 +33,7 @@ export class SearchCaseComponent implements OnInit {
   }
 
 
-  openModalWithComponent() {
-    const initialState = this.initialState;
-    this.bsModalRef = this.modalService.show(ImageSlideComponent, { initialState });
-    this.bsModalRef.content.closeBtnName = 'Close';
-  }
-
+ 
 
   //check valid caseID
   keyPress(event: any) {
