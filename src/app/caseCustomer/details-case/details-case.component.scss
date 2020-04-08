@@ -9,6 +9,10 @@
     margin-bottom: 1.4vh;
 }
 
+::ng-deep datatable-body.datatable-body {
+    height: 50vh;
+}
+
 .button {
     position: relative;
     float: right;
@@ -63,9 +67,9 @@
 }
 
 button:disabled {
-    background-color: #95a5a6 !important;
+    background-color: #BCBCBC !important;
 }
 
 input:disabled {
-    background-color: #95a5a6 !important;
+    background-color: #BCBCBC !important;
 }

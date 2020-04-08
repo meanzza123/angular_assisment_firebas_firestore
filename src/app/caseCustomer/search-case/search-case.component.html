@@ -1,36 +1,32 @@
 <div class="container-fluid box-search">
-    <h2 class="headText">ค้นหาเคส
-        <span class="alertText" *ngIf="caseID.length != 0">ระบุ CaseID ไม่ต้องระบุนที่</span>
 
-        <span class="alertText" *ngIf="dateStart.length != 0">ระบุวันที่ ไม่ต้องระบุ CaseID</span>
-    </h2>
-
-    <hr />
+    <p class="textHead col-12 ">ค้นหาข้อมูล Case ลูกค้า
+    </p>
     <div class="text-center ">
         <div class="groupBtn row">
             <div class="input-group col-xs-12 col-md-6">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Date From</span>
                 </div>
-                <input type="text" value="" class="input-text dateInput" [disabled]="caseID.length > 0" [bsConfig]="{ customTodayClass: 'custom-today-class', isAnimated: true }" bsDatepicker readonly [(ngModel)]="dateStart" [bsConfig]="{ customTodayClass: 'custom-today-class' }"
-                    [maxDate]="dateNow" (ngModelChange)="onInputChange()" name="dateStartchk" #dateStartchk="ngModel">
+                <input type="text" value="" class="input-text dateInput" [disabled]="caseID.length > 0" [bsConfig]="{ customTodayClass: 'custom-today-class', isAnimated: true ,dateInputFormat: 'DD-MM-YYYY',autoclose: true}" bsDatepicker readonly [(ngModel)]="dateStart"
+                    (ngModelChange)="onInputChange()" [maxDate]="dateNow" name="dateStartchk">
             </div>
-            <div class="input-group col-xs-12 col-md-6">
+            <div class="input-group col-xs-12 col-md-6 ">
                 <div class="input-group-prepend">
                     <span class="input-group-text ">Date To</span>
                 </div>
-                <input type="text" value="" class="input-text dateInput" [disabled]="caseID.length > 0" [bsConfig]="{ customTodayClass: 'custom-today-class',isAnimated: true}" bsDatepicker readonly [(ngModel)]="dateStop" (ngModelChange)="onInputChange()" [minDate]="dateStart"
-                    [maxDate]="dateNow" name="dateStopchk" #dateStopchk="ngModel">
+                <input type="text" value="" class="input-text dateInput" [disabled]="caseID.length > 0" [bsConfig]="{ customTodayClass: 'custom-today-class',isAnimated: true,dateInputFormat: 'DD-MM-YYYY',autoclose: true}" bsDatepicker readonly [(ngModel)]="dateStop"
+                    (ngModelChange)="onInputChange()" [minDate]="dateStart" [maxDate]="dateNow" name="dateStopchk">
             </div>
 
             <div class="input-group  col-xs-12 col-md-12">
                 <div class="input-group-prepend textID">
                     <span class="input-group-text">Case Id</span>
                 </div>
-                <input type="text" class="input-text inputID" [(ngModel)]="caseID" name="caseIDs" #caseIDchk="ngModel" minlength="14" maxlength="14" required [disabled]="dateStart.length != 0 || dateStop.length != 0" (keypress)="keyPress($event)" (ngModelChange)="onInputChange()">
+                <input type="text" class="input-text inputID" [(ngModel)]="caseID" name="caseIDs" minlength="14" maxlength="14" required [disabled]="dateStart.length != 0 || dateStop.length != 0" (keypress)="keyPress($event)" (ngModelChange)="onInputChange()">
             </div>
-            <div class="input-group col-12">
-                <div class="input-group-prepend textID"></div>
+            <div class="input-group col-xs-12 col-md-12">
+                <div class="textID"></div>
                 <div *ngIf="caseID.length > 0 && caseID.length < 14" class="input-text inputID alertText ">
                     <span> ใส่ได้เฉพาะ a-z และ 0-9 (14หลัก)</span>
                 </div>
@@ -39,13 +35,13 @@
         </div>
 
         <div class="groupBtn row">
-            <div class="col-2"></div>
-            <div class="col-10">
+            <div class="col-xs-2 col-md-4"></div>
+            <div class="col-xs-10 col-md-8">
                 <button class="button" type="button" (click)="clear()"><i class="fa fa-undo"></i>
                     Clear
                 </button>
                 <button class="button" type="button" [disabled]="!btnSend" (click)="searchCase()">
-                    <i class="fa fa-save"></i>
+                    <i class="fa fa-search"></i>
                     Search
                 </button>
 

@@ -8,11 +8,13 @@
         </a>
     </nav>
     <div class="container-fluid">
+
         <div class="mainContain row" *ngIf="!router.url.includes('pageDetails')">
-            <button class="btn btnMain col-xs-12 col-md-6" type="button" [routerLinkActive]="['isActive']" [routerLink]="['/pageSearch']">
+            <p class="textHead col-12 ">เพิ่มข้อมูล Case ลูกค้า</p>
+            <button class="btn  col-xs-4 col-md-4 mx-auto" type="button" [routerLinkActive]="['isActive']" [routerLink]="['/pageSearch']">
                 <span class="iconBtn"><i class="fa fa-search"></i></span> Find Case
             </button>
-            <button class="btn btnMain col-xs-12 col-md-6" type="button" [routerLinkActive]="['isActive']" [routerLink]="['/pageCreate']">
+            <button class="btn col-xs-4 col-md-4 mx-auto" type="button" [routerLinkActive]="['isActive']" [routerLink]="['/pageCreate']">
                 <span class="iconBtn"> <i class="fa fa-file-text-o"></i></span> New Case
             </button>
         </div>

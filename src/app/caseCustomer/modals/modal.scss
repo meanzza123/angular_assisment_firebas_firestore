@@ -15,6 +15,7 @@ p {
 
 .content {
     padding: 1vh;
+    font-size: 2vh;
 }
 
 ::ng-deep modal-component {
@@ -59,10 +60,6 @@ p {
     background-color: white;
     margin: 2.5vh 0.5vh 2.5vh;
     width: 30%;
-}
-
-.p-3 {
-    border-radius: 1vh;
 }
 
 .btnBack:active {

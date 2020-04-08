@@ -75,6 +75,7 @@ export class DetailsCaseComponent implements OnInit {
       { prop: 'topic', name: 'Topic' },
       { prop: 'description', name: 'Description' },
       { prop: 'CreateDate', name: 'Date Create' },
+      { prop: 'CreateBy', name: 'Create By' },
       { prop: 'statusCase', name: 'Status' }
     ];
 
@@ -85,8 +86,9 @@ export class DetailsCaseComponent implements OnInit {
         .then(res => {
           this.reciveData = res;
           const result = res.map(newCase => ({ caseID: newCase.data.caseID, topic: newCase.data.topic,
-            description:newCase.data.description,CreateDate:newCase.data.CreateDate,statusCase:newCase.data.statusCase
+            description:newCase.data.description,CreateDate:this.datepipe.transform(newCase.data.CreateDate, "dd/MM/yyyy"),CreateBy:newCase.data.caseBy,statusCase:newCase.data.statusCase
           }));
+          console.log(this.reciveData.length)
           this.rows = this.temp = result;
           this.reciveData.length > 0 ? this.btnLoadexcel = true : this.btnLoadexcel = false
           if (res.length <= 0) {
@@ -99,8 +101,9 @@ export class DetailsCaseComponent implements OnInit {
         .then(res => {        
           this.reciveData = res;
           const result = res.map(newCase => ({ caseID: newCase.data.caseID, topic: newCase.data.topic,
-            description:newCase.data.description,CreateDate:newCase.data.CreateDate,statusCase:newCase.data.statusCase
+            description:newCase.data.description,CreateDate:this.datepipe.transform(newCase.data.CreateDate, "dd/MM/yyyy"),CreateBy:newCase.data.caseBy,statusCase:newCase.data.statusCase
           }));
+          console.log(this.reciveData.length)
           this.rows = this.temp = result;
           this.reciveData.length > 0 ? this.btnLoadexcel = true : this.btnLoadexcel = false
           if (res.length <= 0) {
@@ -155,10 +158,11 @@ export class DetailsCaseComponent implements OnInit {
 
   // create excell
   exportAsXLSX() {
-    if (this.dataParams.caseID.length != 0) {
-      this.filename = this.dataParams.caseID;
+    console.log(this.dataParams.id)
+    if (this.dataParams.id) {
+      this.filename = this.dataParams.id;
     } else {
-      this.filename = this.datepipe.transform(this.dataParams.dateStart, "yyyyMMdd") + "-" + this.datepipe.transform(this.dataParams.dateStop, "yyyyMMdd");
+      this.filename = this.datepipe.transform(this.dataParams.dateStart, "ddMMyyyy") + "_" + this.datepipe.transform(this.dataParams.dateStop, "ddMMyyyy");
     }
     this.excelService.generateExcel(this.filename, this.reciveData);
   }

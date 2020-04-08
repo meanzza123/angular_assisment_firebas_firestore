@@ -8,7 +8,7 @@ import { DatePipe } from "@angular/common";
 export class ExcelService {
   constructor(private datepipe: DatePipe) { }
 
-  generateExcel(fileName,datas) {
+  generateExcel(fileName, datas) {
     var workbook = new Excel.Workbook();
     workbook.creator = "";
     workbook.created = new Date();
@@ -73,12 +73,12 @@ export class ExcelService {
     for (let i = 0; i <= 7; i++) {
       const count = i + 1;
       var col = sheet.getColumn(count);
-      if (count === 2 || count === 3 || count === 5) {
-        col.width = 17;
-      } else if (count === 4) {
-        col.width = 25;
-      } else {
+      if (count === 4) {
+        col.width = 32;
+      } else if (count === 1)  {
         col.width = 10;
+      }else{
+        col.width = 17;
       }
     }
 
