@@ -2,25 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { CarouselConfig } from 'ngx-bootstrap/carousel';
 
-
+import { ImageSlideComponent } from '../image-slide/image-slide.component';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-search-case',
   templateUrl: './search-case.component.html',
-  styleUrls: ['./search-case.component.scss']
+  styleUrls: ['./search-case.component.scss'],
+  providers: [
+    { provide: CarouselConfig, useValue: { interval: 0, noPause: true, showIndicators: true } }
+  ]
 })
 export class SearchCaseComponent implements OnInit {
   public dpConfig: Partial<BsDatepickerConfig> = new BsDatepickerConfig();
   caseID: any;
-
+  bsModalRef: BsModalRef;
   btnSend = false;
   dateNow = new Date()
   dateStart = new Date().toLocaleString();
   dateStop = new Date().toLocaleString();
-
+  initialState = {};
   constructor(
     private route: Router,
-    private datepipe: DatePipe
+    private datepipe: DatePipe,
+    private modalService: BsModalService
   ) {
 
   }
@@ -29,7 +35,11 @@ export class SearchCaseComponent implements OnInit {
   }
 
 
-
+  openModalWithComponent() {
+    const initialState = this.initialState;
+    this.bsModalRef = this.modalService.show(ImageSlideComponent, { initialState });
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
 
 
   //check valid caseID

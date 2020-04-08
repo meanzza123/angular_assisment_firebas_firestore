@@ -156,6 +156,12 @@ export class DetailsCaseComponent implements OnInit {
   }
 
 
+  onActivate(event) {
+    if(event.type == 'click') {
+        console.log(event.row);
+    }
+}
+
   // create excell
   exportAsXLSX() {
     console.log(this.dataParams.id)

@@ -1,0 +1,183 @@
+.modal-body {
+    font-size: 4vh;
+}
+
+::ng-deep .modal-content {
+    margin: auto;
+    width: 80%;
+}
+
+p {
+    border-radius: 0.5vh;
+    box-shadow: inset 0 0 3px black;
+    padding: 1vh;
+}
+
+.content {
+    padding: 1vh;
+    font-size: 2vh;
+}
+
+::ng-deep modal-component {
+    background-color: linen;
+    background-color: linen;
+    box-shadow: 0 0 10px 3px black;
+    border-radius: 1vh;
+}
+
+::ng-deep .modal.show .modal-dialog {
+    top: 10%;
+}
+
+@media only screen and (max-width: 2560px) {
+     ::ng-deep .modal-dialog {
+        position: relative;
+        margin: .5rem;
+        pointer-events: none;
+        min-width: 100%!important;
+        min-height: 40%!important;
+    }
+     ::ng-deep .modal-lg,
+    .modal-xl {
+        max-width: 100%;
+        max-height: 40%;
+    }
+}
+
+.button {
+    position: relative;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    overflow: auto;
+    cursor: pointer;
+    border-radius: 1vh;
+    font-size: 2.4vh;
+    box-shadow: inset 0 0 4px black;
+    padding: 1.2vh;
+    overflow: hidden;
+    background-color: white;
+    margin: 2.5vh 0.5vh 2.5vh;
+    width: 30%;
+}
+
+.btnBack:active {
+    box-shadow: inset 0 0 4px black;
+    background-color: #C5E1A4;
+    opacity: 0.9;
+    transition: all 0.8s;
+}
+
+.button:after {
+    overflow: hidden;
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:hover {
+    color: black;
+    background-color: #afd100;
+    box-shadow: inset 0 0 2px white;
+    transition: all 0.8s;
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+::ng-deep .close:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    top: 16px;
+    position: absolute;
+    right: 16px;
+    padding: 2vh;
+    background-color: #FFFFFF;
+    color: white;
+}
+
+::ng-deep .carousel-indicators .active {
+    opacity: 1;
+    background-color: black;
+}
+
+::ng-deep .carousel-indicators {
+    bottom: -60px;
+}
+
+::ng-deep .carousel-indicators li {
+    box-sizing: content-box;
+    -webkit-box-flex: 0;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: grey;
+    background-clip: padding-box;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: .5;
+    -webkit-transition: opacity .6s ease;
+    transition: opacity .6s ease;
+    height: 20px;
+    width: 20px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+::ng-deep .carousel-control-prev,
+ ::ng-deep .carousel-control-next {
+    background-color: white;
+}
+
+ ::ng-deep .carousel .carousel-control-prev-icon,
+ ::ng-deep .carousel .carousel-control-next-icon {
+    background-color: #000;
+    width: 50px;
+    height: 50px;
+    background-size: 41%;
+    border-radius: 50%;
+}
+
+::ng-deep app-image-slide {
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+    padding-bottom: 7vh;
+}
+
+::ng-deep .close:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    top: 16px;
+    position: absolute;
+    right: 16px;
+    /* font-size: 2vh; */
+    /* padding: 1vh; */
+    background-color: black;
+    color: white;
+}
+
+::ng-deep span {
+    color: white;
+    font-size: 2vh;
+}
+
+@media only screen and (max-width: 768px) {
+     ::ng-deep .modal-content {
+        margin: auto;
+        width: 98%;
+    }
+}

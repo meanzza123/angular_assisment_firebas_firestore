@@ -25,6 +25,8 @@ import { LoaderComponent} from './loadder/loadder.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptorService } from './shared/loader-interceptor.service';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ImageSlideComponent } from './caseCustomer/image-slide/image-slide.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     DetailsCaseComponent,
     SearchCaseComponent,
     ModalContentComponent,
-    LoaderComponent
+    LoaderComponent,
+    ImageSlideComponent
   ],
   imports: [
     BrowserModule,
@@ -45,14 +48,15 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     PaginationModule.forRoot(),
     NgxPaginationModule,
     ModalModule.forRoot(),
-    NgxDatatableModule
+    NgxDatatableModule,
+    CarouselModule.forRoot()
   ],
   providers: [ExcelService, RestApiService, DatePipe,    {
     provide: HTTP_INTERCEPTORS,
     useClass: LoaderInterceptorService,
     multi: true
   }],
-  entryComponents: [ModalContentComponent],
+  entryComponents: [ModalContentComponent,ImageSlideComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
