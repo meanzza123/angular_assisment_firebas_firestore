@@ -2,11 +2,28 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-8">
-                <input #search id="search" type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" />
+
             </div>
         </div>
     </div>
 
+
+    <div class="card-body">
+
+        <div class="col-md-4 pull-right">
+            <div class="input-group ">
+                <span class="input-group-prepend">
+                    <div class="input-group-text bg-transparent border-right-0"><i class="fa fa-search"></i></div>
+                </span>
+                <input #search id="search" type="search" class=" py-2 border-left-0 border" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" />
+                <span class="input-group-append">
+                <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                    Search
+                </button>
+              </span>
+            </div>
+        </div>
+    </div>
 
 
     <!-- <ngx-datatable class="material striped" (activate)="onActivate($event)" [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [scrollbarV]="true" [rowHeight]="50" [footerHeight]="50" [limit]="10">
@@ -15,7 +32,7 @@
 
     <ngx-datatable class="material striped" [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="40" [limit]="10">
         <ngx-datatable-column name="Case ID">
-            <ng-template let-column="column" ngx-datatable-header-template>
+            <ng-template let-column="column" let-sort="sortFn" gx-datatable-header-template>
                 <strong> {{column.name}}</strong>
             </ng-template>
             <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>

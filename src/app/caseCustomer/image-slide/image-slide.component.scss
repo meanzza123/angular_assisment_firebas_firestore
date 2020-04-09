@@ -152,6 +152,7 @@ p {
     height: 50px;
     background-size: 41%;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 ::ng-deep app-image-slide {
@@ -171,6 +172,10 @@ p {
     /* font-size: 2vh; */
     /* padding: 1vh; */
     background-color: black;
+    color: white;
+}
+
+::ng-deep .close:not(:disabled):not(.disabled):hover {
     color: white;
 }
 
