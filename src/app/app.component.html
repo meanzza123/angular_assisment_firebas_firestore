@@ -2,7 +2,8 @@
     <nav class="navbar sticky-top navbar-light navbar-expand-sm">
         <a class="navbar-brand">
             <button type="button" class="btnBack" aria-label="Left Align">
-                <i class="fa fa-chevron-left" (click)="goBack()"></i>
+                <!-- <i class="fa fa-chevron-left" (click)="goBack()"></i> -->
+                <i class="fa fa-chevron-left" [routerLink]="['/pageSearch']"></i>
             </button>
             <span class="nameNav"> Customer Case</span>
         </a>

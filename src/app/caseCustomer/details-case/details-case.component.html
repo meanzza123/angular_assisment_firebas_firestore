@@ -1,12 +1,4 @@
 <div class="card mb-5">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-8">
-
-            </div>
-        </div>
-    </div>
-
 
     <div class="card-body">
 
@@ -16,83 +8,64 @@
                     <div class="input-group-text bg-transparent border-right-0"><i class="fa fa-search"></i></div>
                 </span>
                 <input #search id="search" type="search" class=" py-2 border-left-0 border" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" />
-                <span class="input-group-append">
-                <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                    Search
-                </button>
-              </span>
+
             </div>
         </div>
     </div>
 
 
-    <!-- <ngx-datatable class="material striped" (activate)="onActivate($event)" [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [scrollbarV]="true" [rowHeight]="50" [footerHeight]="50" [limit]="10">
-    </ngx-datatable> -->
+    <ngx-datatable class="material striped" [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'40'" [limit]="10">
+        <ngx-datatable-column [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" name="caseID" prop="caseID">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <a class="btnLink" (click)="openModalImage(row.image)">{{row.caseID}}</a>
+            </ng-template>
+        </ngx-datatable-column>
 
+        <ngx-datatable-column [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" name="Topic" prop="Topic">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <a class="btnLink" (click)="openModalImage(row.image)">{{row.topic}}</a>
+            </ng-template>
+        </ngx-datatable-column>
 
-    <ngx-datatable class="material striped" [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="40" [limit]="10">
-        <ngx-datatable-column name="Case ID">
-            <ng-template let-column="column" let-sort="sortFn" gx-datatable-header-template>
-                <strong> {{column.name}}</strong>
-            </ng-template>
-            <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-                <a (click)="openModalImage(rows[rowIndex].image)">{{rows[rowIndex].caseID}}</a>
+        <ngx-datatable-column [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" name="description" prop="description">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span>{{row.description}}</span>
             </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Topic">
-            <ng-template let-column="column" ngx-datatable-header-template>
-                <strong> {{column.name}}</strong>
-            </ng-template>
-            <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-                <a (click)="openModalImage(rows[rowIndex].topic)">{{rows[rowIndex].topic}}</a>
+
+        <ngx-datatable-column [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" name="CreateDate" prop="CreateDate">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span>{{row.CreateDate}}</span>
             </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Description">
-            <ng-template let-column="column" ngx-datatable-header-template>
-                <strong> {{column.name}}</strong>
-            </ng-template>
-            <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-                <span> {{rows[rowIndex].description}}</span>
+
+        <ngx-datatable-column [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" name="CreateBy" prop="CreateBy">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span>{{row.CreateBy}}</span>
             </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Date Create">
-            <ng-template let-column="column" ngx-datatable-header-template>
-                <strong> {{column.name}}</strong>
-            </ng-template>
-            <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-                <span> {{rows[rowIndex].CreateDate}}</span>
+
+        <ngx-datatable-column [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" name="statusCase" prop="statusCase">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span>{{row.statusCase}}</span>
             </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Create By">
-            <ng-template let-column="column" ngx-datatable-header-template>
-                <strong> {{column.name}}</strong>
-            </ng-template>
-            <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-                <span> {{rows[rowIndex].CreateBy}}</span>
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Status">
-            <ng-template let-column="column" ngx-datatable-header-template>
-                <strong> {{column.name}}</strong>
-            </ng-template>
-            <ng-template let-row="rows" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-                <span> {{rows[rowIndex].statusCase}}</span>
-            </ng-template>
-        </ngx-datatable-column>
+
     </ngx-datatable>
-</div>
 
-<div class="row">
-    <div class="col-12">
-    </div>
-    <div class="col-6">
-    </div>
-    <div class="col-6">
-        <div class="text-center">
-            <button class="button" type="button" [disabled]="!btnLoadexcel" (click)="exportAsXLSX()">
+
+    <div class="row">
+        <div class="col-12">
+        </div>
+        <div class="col-6">
+        </div>
+        <div class="col-6">
+            <div class="text-center">
+                <button class="button" type="button" [disabled]="!btnLoadexcel" (click)="exportAsXLSX()">
                 <i class="fa fa-save"></i>
                 Download File
             </button>
+            </div>
         </div>
     </div>
 </div>
