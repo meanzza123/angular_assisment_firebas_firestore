@@ -5,7 +5,7 @@
         <div class="col-md-4 pull-right">
             <div class="input-group ">
                 <span class="input-group-prepend">
-                    <div class="input-group-text bg-transparent border-right-0"><i class="fa fa-search"></i></div>
+                    <div class="input-group-text"><i class="fa fa-search"></i></div>
                 </span>
                 <input #search id="search" type="search" class=" py-2 border-left-0 border" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" />
 
@@ -53,6 +53,16 @@
 
     </ngx-datatable>
 
+    <div class="cardMobile">
+        <div class="cardDetails">
+            <p class="textHead col-12 ">ค้นหาข้อมูล Case ลูกค้า
+            </p>
+        </div>
+
+    </div>
+
+
+
 
     <div class="row">
         <div class="col-12">
@@ -62,9 +72,9 @@
         <div class="col-6">
             <div class="text-center">
                 <button class="button" type="button" [disabled]="!btnLoadexcel" (click)="exportAsXLSX()">
-                <i class="fa fa-save"></i>
-                Download File
-            </button>
+                    <i class="fa fa-save"></i>
+                    Download File
+                </button>
             </div>
         </div>
     </div>
