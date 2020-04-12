@@ -52,30 +52,62 @@
         </ngx-datatable-column>
 
     </ngx-datatable>
+</div>
 
-    <div class="cardMobile">
-        <div class="cardDetails">
-            <p class="textHead col-12 ">ค้นหาข้อมูล Case ลูกค้า
-            </p>
-        </div>
-
-    </div>
-
-
-
-
-    <div class="row">
-        <div class="col-12">
-        </div>
-        <div class="col-6">
-        </div>
-        <div class="col-6">
-            <div class="text-center">
-                <button class="button" type="button" [disabled]="!btnLoadexcel" (click)="exportAsXLSX()">
-                    <i class="fa fa-save"></i>
-                    Download File
-                </button>
+<div class="cardMobile" *ngFor="let item of rows;index as i;" style="
+border-radius: 0vh 0vh 1vh 1vh;">
+    <div class="cardDetails">
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <p class="pl-2"><b class="textCase">Case ID : </b>
+                    <span> {{item.caseID}}</span></p>
             </div>
+            <div class="col-6">
+                <p class="pl-2"><b class="textCase">Topic : </b><span>{{item.topic}}</span></p>
+            </div>
+            <div class="col-6">
+                <p class="pl-2"><b class="textCase">Status : </b><span [ngClass]="{'Immediately': item.statusCase === 'Immediately', 'Urgent':  item.statusCase === 'Urgent', 'Normal':  item.statusCase === 'Normal'}">{{item.statusCase}}</span></p>
+            </div>
+            <div [collapse]="!item.caseIDs" [isAnimated]="true">
+                <div class="col-12">
+                    <p class="pl-2"><b class="textCase">Date Create : </b><span> {{item.CreateDate}}</span></p>
+                </div>
+                <div class="col-12">
+                    <p class="pl-2"><b class="textCase">Description : </b><span> </span></p>
+                    {{item.description}}
+                </div>
+                <div class="col-12">
+                    <carousel>
+                        <slide *ngFor="let item of item.image">
+                            <img [src]="item.src" style="display: block; width: 220px;height: 220px;margin: auto;padding: 6vh;">
+                        </slide>
+                    </carousel>
+                </div>
+
+
+            </div>
+
+        </div>
+        <p class="textHead col-12 " (click)="item.caseIDs= !item.caseIDs"><span class="btnDetails">Details <i
+                    [ngClass]="(item.caseIDs) ? 'fa fa-sort-up' : 'fa fa-sort-down'"></i></span>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+    </div>
+    <div class="col-6">
+    </div>
+    <div class="col-6">
+        <div class="text-center">
+            <button class="button" type="button" [disabled]="!btnLoadexcel" (click)="exportAsXLSX()">
+                <i class="fa fa-save"></i>
+                Download File
+            </button>
+
+
         </div>
     </div>
 </div>

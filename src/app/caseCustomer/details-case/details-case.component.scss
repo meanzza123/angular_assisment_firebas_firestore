@@ -67,11 +67,24 @@
     padding: 0px;
 }
 
+.btnLink {
+    color: blue!important;
+    text-decoration: underline!important;
+    cursor: pointer!important;
+}
+
 .textHead {
-    background-color: #8CC83F;
-    color: black;
-    border-radius: 1vh 1vh 0vh 0vh;
+    background-color: black;
+    color: silver;
     padding: 1vh;
+    text-align: center;
+    border-radius: 0vh 0vh 1vh 1vh;
+}
+
+.btnDetails {
+    background-size: 41%;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 button:disabled {
@@ -80,4 +93,93 @@ button:disabled {
 
 input:disabled {
     background-color: #BCBCBC !important;
+}
+
+.cardMobile {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.testcase {
+    color: green;
+}
+
+::ng-deep .carousel .carousel-control-prev-icon,
+::ng-deep .carousel .carousel-control-next-icon {
+    background-color: #000;
+    width: 50px;
+    height: 50px;
+    background-size: 41%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+::ng-deep .carousel-indicators li {
+    box-sizing: content-box;
+    -webkit-box-flex: 0;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: grey;
+    background-clip: padding-box;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: .5;
+    -webkit-transition: opacity .6s ease;
+    transition: opacity .6s ease;
+    height: 20px;
+    width: 20px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    bottom: -20px;
+}
+
+::ng-deep .carousel-indicators .active {
+    background-color: black;
+}
+
+::ng-deep .collapse.in.show {
+    width: 100%;
+}
+
+.Immediately {
+    color: red;
+}
+
+.Urgent {
+    color: orangered;
+}
+
+.Normal {
+    color: blue;
+}
+
+::ng-deep i.fa.fa-sort-down,
+::ng-deep i.fa.fa-sort-up {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border-radius: 2vh;
+    width: 20px;
+    height: 20px;
+    color: black!important;
+    background-color: white!important;
+}
+
+::ng-deep i.fa.fa-sort-down:hover,
+::ng-deep i.fa.fa-sort-up :hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+     ::ng-deep .ngx-datatable.material {
+        display: none;
+    }
 }

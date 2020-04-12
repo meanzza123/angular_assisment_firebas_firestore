@@ -34,6 +34,7 @@ export class DetailsCaseComponent implements OnInit {
   btnLoadexcel = false;
   filename: string;
   p: number = 1;
+  isCollapse:any;
   datatoModal = this.route.queryParams;
   constructor(
     private excelService: ExcelService,
@@ -148,9 +149,7 @@ export class DetailsCaseComponent implements OnInit {
         this.updateFilter(value);
       });
   }
-  dataTest($event: any) {
-    console.log($event)
-  }
+
 
   updateFilter(val: any) {
     const value = val.toString().toLowerCase().trim();
@@ -158,6 +157,7 @@ export class DetailsCaseComponent implements OnInit {
     const count = this.columns.length;
     // get the key names of each column in the dataset
     const keys = Object.keys(this.temp[0]);
+    console.log(keys)
     // assign filtered matches to the active datatable
     this.rows = this.temp.filter(item => {
       // iterate through each row's column data

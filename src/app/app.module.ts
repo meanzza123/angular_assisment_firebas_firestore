@@ -27,6 +27,7 @@ import { LoaderInterceptorService } from './shared/loader-interceptor.service';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ImageSlideComponent } from './caseCustomer/image-slide/image-slide.component';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { ImageSlideComponent } from './caseCustomer/image-slide/image-slide.comp
     NgxPaginationModule,
     ModalModule.forRoot(),
     NgxDatatableModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    CollapseModule.forRoot()
   ],
   providers: [ExcelService, RestApiService, DatePipe,    {
     provide: HTTP_INTERCEPTORS,

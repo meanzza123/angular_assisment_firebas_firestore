@@ -1,6 +1,6 @@
 <div class="modal-body container-fluid modal-xl" bsModal #Modal="bs-modal">
     <div class="modal-header">
-        <h3 class="p-3 bg-danger" *ngIf="!imageLoadder.length != 0">ไม่พบรูป หรือไม่มีข้อมูลรูป</h3>
+        <h3 class="p-3 bg-danger" *ngIf="imageLoadder.length == 0">ไม่พบรูป หรือไม่มีข้อมูลรูป</h3>
         <a class="close pull-right" (click)="onCancel()"><span aria-hidden="true">&times;</span></a>
     </div>
     <div class="modalcontent" *ngIf="imageLoadder.length != 0">

@@ -11,7 +11,7 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
   ]
 })
 export class ImageSlideComponent implements OnInit {
-  imageLoadder: any;
+  imageLoadder: [];
 
   numberOfItems = 0;
   constructor(private _bsModalRef: BsModalRef) { }
