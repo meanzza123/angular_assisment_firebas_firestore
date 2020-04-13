@@ -1,7 +1,57 @@
-<div class="cardMain">
-    <div class="pull-right"><i class="fa fa-search"></i> search :
-        <input #search id="search" type="search" class=" py-2 border-left-0 border" />
+<div class="card mb-5">
+
+    <div class="card-body">
+
+        <div class="d-flex justify-content-center">
+            <span class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-search"></i></div>
+            </span>
+            <input #search id="search" type="search" class=" py-2 border-left-0 border" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" />
+            <span class="input-group-prepend mobile">
+                <button [disabled]="!btnLoadexcel" (click)="exportAsXLSX()" style="padding: 0px;">
+                    <div class="input-group-text"><i class="fa fa-cloud-upload"></i></div>
+                </button></span>
+            <div class="btn-group" dropdown>
+                <span class="input-group-prepend mobile">
+                    <button id="button-menu-dividers" style="padding: 0px;" dropdownToggle type="button">
+                        <div class="input-group-text"> <i class="fa fa-tasks"></i></div>
+                    </button></span>
+                <ul id="dropdown-menu-dividers" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-menu-dividers">
+                    <li role="menuitem" (click)="activeCaseID = !activeCaseID">
+                        <a class="dropdown-item" *ngIf="activeCaseID" (click)="sortDesc('caseID')"><i class="fa fa-caret-square-o-up"></i> Sort By :
+                            Case ID</a>
+                        <a class="dropdown-item" *ngIf="!activeCaseID" (click)="sortAsc('caseID')"><i class="fa fa-caret-square-o-down"></i> Sort By
+                            :
+                            Case ID</a></li>
+                    <li class="divider dropdown-divider"></li>
+                    <li role="menuitem" (click)="activeTopic = !activeTopic">
+                        <a class="dropdown-item" *ngIf="activeTopic" (click)="sortDesc('topic')"><i class="fa fa-caret-square-o-up"></i> Sort By :
+                            Topic</a>
+                        <a class="dropdown-item" *ngIf="!activeTopic" (click)="sortAsc('topic')"><i class="fa fa-caret-square-o-down"></i>Sort By :
+                            Topic
+                            :
+                            Case ID</a></li>
+
+                    <li class="divider dropdown-divider"></li>
+                    <li role="menuitem" (click)="activeStatus = !activeStatus">
+                        <a class="dropdown-item" *ngIf="activeStatus" (click)="sortDesc('statusCase')"><i class="fa fa-caret-square-o-up"></i> Sort By : Status</a>
+                        <a class="dropdown-item" *ngIf="!activeStatus" (click)="sortAsc('statusCase')"><i class="fa fa-caret-square-o-down"></i> Sort By
+                            : Status</a></li>
+                    <li class="divider dropdown-divider"></li>
+                    <li role="menuitem" (click)="activeDate = !activeDate">
+                        <a class="dropdown-item" *ngIf="activeDate" (click)="sortDesc('CreateDate')"><i class="fa fa-caret-square-o-up"></i> Sort By
+                            : Date Create</a>
+                        <a class="dropdown-item" *ngIf="!activeDate" (click)="sortAsc('CreateDate')"><i class="fa fa-caret-square-o-down"></i> Sort By
+                            : Date Create</a></li>
+                </ul>
+            </div>
+
+        </div>
     </div>
+
+
+
+
     <ngx-datatable class="material striped" [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'40'" [limit]="10">
         <ngx-datatable-column [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" name="caseID" prop="caseID">
             <ng-template let-row="row" ngx-datatable-cell-template>
@@ -23,7 +73,7 @@
 
         <ngx-datatable-column [resizeable]="true" [sortable]="true" [draggable]="true" [canAutoResize]="true" name="CreateDate" prop="CreateDate">
             <ng-template let-row="row" ngx-datatable-cell-template>
-                <p>{{row.CreateDate}}</p>
+                <p>{{row.CreateDate | date: 'dd/MM/yyyy'}}</p>
             </ng-template>
         </ngx-datatable-column>
 
@@ -59,7 +109,7 @@
             </div>
             <div [collapse]="!item.caseIDs" [isAnimated]="true">
                 <div class="col-12">
-                    <p class="pl-2"><b class="textCase">Date Create : </b><span> {{item.CreateDate}}</span></p>
+                    <p class="pl-2"><b class="textCase">Date Create : </b><span> {{item.CreateDate | date: 'dd/MM/yyyy'}}</span></p>
                 </div>
                 <div class="col-12">
                     <p class="pl-2"><b class="textCase">Description : </b><span> {{item.description}} </span></p>
@@ -90,7 +140,7 @@
     </div>
     <div class="col-6">
         <div class="text-center">
-            <button class="button" type="button" [disabled]="!btnLoadexcel" (click)="exportAsXLSX()">
+            <button class="button" class="button" type="button" [disabled]="!btnLoadexcel" (click)="exportAsXLSX()">
                 <i class="fa fa-save"></i>
                 Download File
             </button>

@@ -103,7 +103,7 @@ export class DetailsCaseComponent implements OnInit {
           this.reciveData = res;
           const result = res.map(newCase => ({
             caseID: newCase.data.caseID, topic: newCase.data.topic,
-            description: newCase.data.description, CreateDate: this.datepipe.transform(newCase.data.CreateDate, "dd/MM/yyyy"), CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase,image: newCase.data.image
+            description: newCase.data.description, CreateDate: newCase.data.CreateDate, CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase,image: newCase.data.image
           }));
           console.log(this.reciveData.length)
           this.rows = this.temp = result;
@@ -120,7 +120,7 @@ export class DetailsCaseComponent implements OnInit {
           this.reciveData = res;
           const result = res.map(newCase => ({
             caseID: newCase.data.caseID, topic: newCase.data.topic,
-            description: newCase.data.description, CreateDate: this.datepipe.transform(newCase.data.CreateDate, "dd/MM/yyyy"), CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase,image: newCase.data.image
+            description: newCase.data.description, CreateDate: newCase.data.CreateDate, CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase,image: newCase.data.image
           }));
           console.log(this.reciveData.length)
           this.rows = this.temp = result;
@@ -148,6 +148,8 @@ export class DetailsCaseComponent implements OnInit {
       .subscribe(value => {
         this.updateFilter(value);
       });
+
+     
   }
 
 
@@ -180,13 +182,14 @@ export class DetailsCaseComponent implements OnInit {
     // this.table.offset = 0;
   }
 
+sortDesc(value){
+  this.rows.sort((a, b) => (a[value] < b[value]) ? 1 : -1)
+}
 
-  onActivate(event) {
-    if (event.type == 'click') {
-      console.log(event.row);
-    }
-  }
-
+sortAsc(value){
+  this.rows.sort((a, b) => (a[value] > b[value]) ? 1 : -1)
+}
+  
   // create excell
   exportAsXLSX() {
     console.log(this.dataParams.id)

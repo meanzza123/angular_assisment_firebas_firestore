@@ -16,11 +16,11 @@
     overflow: auto;
     cursor: pointer;
     border-radius: 1vh;
-    font-size: 1.8vh;
+    font-size: 1.6vh;
     box-shadow: inset 0 0 4px black;
     padding: 1vh;
     overflow: hidden;
-    background-color: white;
+    background-color: #8CC841;
     margin: 2.5vh 0.5vh 2.5vh;
 }
 
@@ -140,14 +140,32 @@ input:disabled {
 
 #search {
     width: 70%;
+    font-size: 1.6vh;
 }
 
 .Urgent {
-    color: orangered;
+    color: orange;
 }
 
 .Normal {
     color: blue;
+}
+
+::ng-deep ul#dropdown-menu-dividers {
+    left: -150px!important;
+    right: auto!important;
+    top: 100%!important;
+    transform: translateY(0px)!important;
+    bottom: auto!important;
+}
+
+::ng-deep a.dropdown-item:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+button {
+    border: none;
 }
 
 ::ng-deep i.fa.fa-sort-down,
@@ -175,49 +193,27 @@ input:disabled {
     display: block;
 }
 
+::ng-deep .card {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
 .cardDetails {
     display: none;
 }
 
-@media only screen and (max-width: 768px) {
+.mobile {
+    display: none;
+}
+
+@media only screen and (max-width: 1024px) {
      ::ng-deep .ngx-datatable.material {
         display: none;
     }
-    .cardDetails {
-        background-color: white;
-        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-        transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-        border-radius: 1vh;
-        padding: 0px;
-        font-size: 3vh;
-        word-wrap: break-word;
-        display: block;
-    }
-}
-
-.card-body {
-    padding: 2vh 0vh 0vh 0vh;
-}
-
-@media only screen and (max-width: 375px) {
-     ::ng-deep .ngx-datatable.material {
+    .button {
         display: none;
     }
-    .cardDetails {
-        background-color: white;
-        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-        transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-        border-radius: 1vh;
-        padding: 0px;
-        font-size: 1.8vh;
-        word-wrap: break-word;
-        display: block;
-    }
-}
-
-@media only screen and (max-width: 325px) {
-     ::ng-deep .ngx-datatable.material {
-        display: none;
+    .mobile {
+        display: flex;
     }
     .cardDetails {
         background-color: white;
@@ -229,4 +225,9 @@ input:disabled {
         word-wrap: break-word;
         display: block;
     }
+}
+
+.mobile:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
