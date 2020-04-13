@@ -205,7 +205,16 @@ button {
     display: none;
 }
 
-@media only screen and (max-width: 1024px) {
+::ng-deep .card-body {
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+    background-color: ghostwhite;
+    border-radius: 1vh;
+}
+
+@media only screen and (max-width: 768px) {
      ::ng-deep .ngx-datatable.material {
         display: none;
     }

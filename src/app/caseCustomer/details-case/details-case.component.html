@@ -7,10 +7,13 @@
                 <div class="input-group-text"><i class="fa fa-search"></i></div>
             </span>
             <input #search id="search" type="search" class=" py-2 border-left-0 border" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" />
+
             <span class="input-group-prepend mobile">
-                <button [disabled]="!btnLoadexcel" (click)="exportAsXLSX()" style="padding: 0px;">
-                    <div class="input-group-text"><i class="fa fa-cloud-upload"></i></div>
-                </button></span>
+                    <button [disabled]="!btnLoadexcel" (click)="exportAsXLSX()" style="padding: 0px;">
+                        <div class="input-group-text"><i class="fa fa-cloud-upload"></i></div>
+                    </button>
+                </span>
+
             <div class="btn-group" dropdown>
                 <span class="input-group-prepend mobile">
                     <button id="button-menu-dividers" style="padding: 0px;" dropdownToggle type="button">
