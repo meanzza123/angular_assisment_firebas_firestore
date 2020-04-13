@@ -34,7 +34,7 @@ export class DetailsCaseComponent implements OnInit {
   btnLoadexcel = false;
   filename: string;
   p: number = 1;
-  isCollapse: any;
+  isCollapse:any;
   datatoModal = this.route.queryParams;
   constructor(
     private excelService: ExcelService,
@@ -76,9 +76,9 @@ export class DetailsCaseComponent implements OnInit {
 
     const initialState = {
       imageLoadder
-    }
-
-
+     }
+      
+    
     this.bsModalRef = this.modalService.show(ImageSlideComponent, { initialState });
     this.bsModalRef.content.closeBtnName = 'Close';
   }
@@ -95,7 +95,7 @@ export class DetailsCaseComponent implements OnInit {
       { prop: 'CreateBy', name: 'Create By' },
       { prop: 'statusCase', name: 'Status' },
     ];
-
+  
     this.btnLoadexcel = false;
     if (this.dataParams.id) {
       this.restApiService.fngGetByCase(this.dataParams)
@@ -103,7 +103,7 @@ export class DetailsCaseComponent implements OnInit {
           this.reciveData = res;
           const result = res.map(newCase => ({
             caseID: newCase.data.caseID, topic: newCase.data.topic,
-            description: newCase.data.description, CreateDate: this.datepipe.transform(newCase.data.CreateDate, "dd/MM/yyyy"), CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase, image: newCase.data.image
+            description: newCase.data.description, CreateDate: this.datepipe.transform(newCase.data.CreateDate, "dd/MM/yyyy"), CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase,image: newCase.data.image
           }));
           console.log(this.reciveData.length)
           this.rows = this.temp = result;
@@ -120,7 +120,7 @@ export class DetailsCaseComponent implements OnInit {
           this.reciveData = res;
           const result = res.map(newCase => ({
             caseID: newCase.data.caseID, topic: newCase.data.topic,
-            description: newCase.data.description, CreateDate: this.datepipe.transform(newCase.data.CreateDate, "dd/MM/yyyy"), CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase, image: newCase.data.image
+            description: newCase.data.description, CreateDate: this.datepipe.transform(newCase.data.CreateDate, "dd/MM/yyyy"), CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase,image: newCase.data.image
           }));
           console.log(this.reciveData.length)
           this.rows = this.temp = result;
@@ -158,27 +158,21 @@ export class DetailsCaseComponent implements OnInit {
     // get the key names of each column in the dataset
     const keys = Object.keys(this.temp[0]);
     // assign filtered matches to the active datatable
-    console.log(keys)
-    this.rows = this.temp.filter(item => {
+    this.rows = this.temp.filter(item =>  {
       // iterate through each row's column data
-      /*0: "caseID"
-1: "topic"
-2: "description"
-3: "CreateDate"
-4: "CreateBy"
-5: "statusCase"
-6: "image"*/
-      // check for a match
-      if (
-        (item[keys[0]] &&
-          item[keys[0]]
-            .toString()
-            .toLowerCase()
-            .indexOf(value) !== -1) ||
-        !value
-      ) {
-        // found match, return true to add to result set
-        return true;
+      for (let i = 0; i < count; i++) {
+        // check for a match
+        if (
+          (item[keys[i]] &&
+            item[keys[i]]
+              .toString()
+              .toLowerCase()
+              .indexOf(value) !== -1) ||
+          !value
+        ) {
+          // found match, return true to add to result set
+          return true;
+        }
       }
     });
 

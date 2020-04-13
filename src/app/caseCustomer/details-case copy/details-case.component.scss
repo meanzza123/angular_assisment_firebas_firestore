@@ -195,6 +195,10 @@ input:disabled {
     }
 }
 
+.card-body {
+    padding: 2vh 0vh 0vh 0vh;
+}
+
 @media only screen and (max-width: 375px) {
      ::ng-deep .ngx-datatable.material {
         display: none;

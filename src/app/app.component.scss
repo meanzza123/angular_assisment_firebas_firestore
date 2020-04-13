@@ -2,12 +2,13 @@
     width: 100%;
     height: auto;
     background-image: linear-gradient(to right, #afcf00, mediumseagreen);
+    padding: 1vh;
 }
 
 .mainContain {
     margin: 4vh auto 2vh auto;
     background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
     border-radius: 1vh;
     padding-bottom: 2vh;
@@ -20,11 +21,15 @@
     padding: 1vh;
 }
 
+::ng-deep .card {
+    margin-top: 2vh;
+}
+
 .container-fluid {
     background-color: #F2F2F5;
     width: 70%;
     height: 100%;
-    overflow: auto;
+    overflow: initial;
 }
 
 .btnBack {
@@ -58,12 +63,12 @@
     overflow: hidden;
     background-color: ghostwhite;
     margin: 2.5vh 0.5vh 2.5vh;
-    width: 45%;
+    width: 40%;
 }
 
 .groupBtn {
     padding: 0px;
-    width: 70%;
+    width: 50%;
     margin: auto;
 }
 
@@ -115,14 +120,25 @@ a.navbar-brand {
     display: inline;
 }
 
-@media only screen and (min-width: 2000px) {
+// @media only screen and (min-width: 2000px) {
+//     .container-fluid {
+//         width: 72%;
+//     }
+// }
+@media only screen and (max-width: 768px) {
     .container-fluid {
-        width: 72%;
+        width: 80%;
+    }
+    .groupBtn {
+        width: 100%;
     }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 768px) {
     .container-fluid {
+        width: 90%;
+    }
+    .groupBtn {
         width: 100%;
     }
 }
