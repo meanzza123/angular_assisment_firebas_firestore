@@ -27,6 +27,10 @@ export class DetailsCaseComponent implements OnInit {
   public rows: Array<object> = [];
   public columns: Array<object>;
 
+  activeCaseID:any;
+  activeTopic:any;
+  activeStatus:any;
+  activeDate:any;
 
   reciveData: any;
   dataParams: any;
