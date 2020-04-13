@@ -28,6 +28,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ImageSlideComponent } from './caseCustomer/image-slide/image-slide.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     ModalModule.forRoot(),
     NgxDatatableModule,
     CarouselModule.forRoot(),
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   providers: [ExcelService, RestApiService, DatePipe,    {
     provide: HTTP_INTERCEPTORS,

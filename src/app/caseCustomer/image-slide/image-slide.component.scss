@@ -113,7 +113,11 @@ p {
 }
 
 ::ng-deep .carousel-indicators {
-    bottom: -60px;
+    bottom: -50px;
+}
+
+::ng-deep input[type="search"] {
+    background-color: lightgrey;
 }
 
 ::ng-deep .carousel-indicators li {
@@ -161,7 +165,7 @@ p {
 }
 
 ::ng-deep .modal-header {
-    display: inline;
+    display: inline-block;
     padding: 0px;
 }
 
