@@ -27,10 +27,10 @@ export class DetailsCaseComponent implements OnInit {
   public rows: Array<object> = [];
   public columns: Array<object>;
 
-  activeCaseID:any;
-  activeTopic:any;
-  activeStatus:any;
-  activeDate:any;
+  activeCaseID: any;
+  activeTopic: any;
+  activeStatus: any;
+  activeDate: any;
 
   reciveData: any;
   dataParams: any;
@@ -38,7 +38,7 @@ export class DetailsCaseComponent implements OnInit {
   btnLoadexcel = false;
   filename: string;
   p: number = 1;
-  isCollapse:any;
+  isCollapse: any;
   datatoModal = this.route.queryParams;
   constructor(
     private excelService: ExcelService,
@@ -80,9 +80,9 @@ export class DetailsCaseComponent implements OnInit {
 
     const initialState = {
       imageLoadder
-     }
-      
-    
+    }
+
+
     this.bsModalRef = this.modalService.show(ImageSlideComponent, { initialState });
     this.bsModalRef.content.closeBtnName = 'Close';
   }
@@ -99,7 +99,7 @@ export class DetailsCaseComponent implements OnInit {
       { prop: 'CreateBy', name: 'Create By' },
       { prop: 'statusCase', name: 'Status' },
     ];
-  
+
     this.btnLoadexcel = false;
     if (this.dataParams.id) {
       this.restApiService.fngGetByCase(this.dataParams)
@@ -107,11 +107,9 @@ export class DetailsCaseComponent implements OnInit {
           this.reciveData = res;
           const result = res.map(newCase => ({
             caseID: newCase.data.caseID, topic: newCase.data.topic,
-            description: newCase.data.description, CreateDate: newCase.data.CreateDate, CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase,image: newCase.data.image
+            description: newCase.data.description, CreateDate: newCase.data.CreateDate, CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase, image: newCase.data.image
           }));
-          console.log(this.reciveData.length)
           this.rows = this.temp = result;
-          console.log(this.rows)
           this.reciveData.length > 0 ? this.btnLoadexcel = true : this.btnLoadexcel = false
           if (res.length <= 0) {
             this.openModalWithComponent();
@@ -124,11 +122,9 @@ export class DetailsCaseComponent implements OnInit {
           this.reciveData = res;
           const result = res.map(newCase => ({
             caseID: newCase.data.caseID, topic: newCase.data.topic,
-            description: newCase.data.description, CreateDate: newCase.data.CreateDate, CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase,image: newCase.data.image
+            description: newCase.data.description, CreateDate: newCase.data.CreateDate, CreateBy: newCase.data.caseBy, statusCase: newCase.data.statusCase, image: newCase.data.image
           }));
-          console.log(this.reciveData.length)
           this.rows = this.temp = result;
-          console.log(this.rows)
           this.reciveData.length > 0 ? this.btnLoadexcel = true : this.btnLoadexcel = false
           if (res.length <= 0) {
             this.openModalWithComponent();
@@ -153,7 +149,7 @@ export class DetailsCaseComponent implements OnInit {
         this.updateFilter(value);
       });
 
-     
+
   }
 
 
@@ -164,7 +160,7 @@ export class DetailsCaseComponent implements OnInit {
     // get the key names of each column in the dataset
     const keys = Object.keys(this.temp[0]);
     // assign filtered matches to the active datatable
-    this.rows = this.temp.filter(item =>  {
+    this.rows = this.temp.filter(item => {
       // iterate through each row's column data
       for (let i = 0; i < count; i++) {
         // check for a match
@@ -186,17 +182,16 @@ export class DetailsCaseComponent implements OnInit {
     // this.table.offset = 0;
   }
 
-sortDesc(value){
-  this.rows.sort((a, b) => (a[value] < b[value]) ? 1 : -1)
-}
+  sortDesc(value) {
+    this.rows.sort((a, b) => (a[value] < b[value]) ? 1 : -1)
+  }
 
-sortAsc(value){
-  this.rows.sort((a, b) => (a[value] > b[value]) ? 1 : -1)
-}
-  
+  sortAsc(value) {
+    this.rows.sort((a, b) => (a[value] > b[value]) ? 1 : -1)
+  }
+
   // create excell
   exportAsXLSX() {
-    console.log(this.dataParams.id)
     if (this.dataParams.id) {
       this.filename = this.dataParams.id;
     } else {
